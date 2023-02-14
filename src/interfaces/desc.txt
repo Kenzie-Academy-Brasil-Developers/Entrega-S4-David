@@ -1,0 +1,1 @@
+ Armazena as declarações de interface e type da aplicação. 

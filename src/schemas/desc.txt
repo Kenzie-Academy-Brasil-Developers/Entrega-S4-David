@@ -1,0 +1,4 @@
+
+    Armazena todas as funções, objetos e métodos responsáveis pela validação de dados.
+    Assegura que os dados recebidos estão corretos.
+    Outro nome para essa pasta é serializers.

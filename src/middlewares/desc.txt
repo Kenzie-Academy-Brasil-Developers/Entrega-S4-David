@@ -1,0 +1,5 @@
+middlewares
+
+    Intermediário entre a rota e o controller.
+    Responsável por verificar e validar os dados da requisição.
+    Comumente utilizado para evitar repetição de código.
