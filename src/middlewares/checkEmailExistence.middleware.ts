@@ -33,6 +33,7 @@ const checkEmailExistenceMiddleware = (type: string) => {
         throw new AppError("Wrong Email/Password", 401);
       } else {
         req.loggedEmail = req.body;
+        req.id = response.id.toString()
         next();
       }
     }

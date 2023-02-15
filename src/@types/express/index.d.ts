@@ -9,6 +9,7 @@ declare global {
       email:string,
       loggedEmail: string,
       searchedId:number,
+      id:string,
     }
   }
 }

@@ -9,6 +9,7 @@ const userFromTokenMiddleware = async (req:Request, res:Response, next: NextFunc
     
     const user:any = validateTokenService(req.token);
     const response: User= await selectbyIdService(user.sub)
+    console.log(response)
     req.loggedEmail = response.email
     return next()
 }

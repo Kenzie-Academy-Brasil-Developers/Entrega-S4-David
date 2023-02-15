@@ -1,8 +1,11 @@
 import { NextFunction, Request, Response } from "express";
+import deactivateUserService from '../services/deactivateUser.services';
 
 
-const deactivateUserController = (req:Request, res: Response,next:NextFunction) => {
-    return res.status(200).json({message:"chegou ao fim da requisição"});
+const deactivateUserController = async(req:Request, res: Response,next:NextFunction) => {
+
+    const response = await deactivateUserService(req.params.id)
+    return res.status(204).send();
 }
  
 export default deactivateUserController;

@@ -8,3 +8,7 @@ export type UserLogin = Pick<User,"email"|"password" >
 export type UserResponse = QueryResult<User>
 export type UserSanitized = Partial<User>
 export type UserUpdate = Partial<User>
+export interface Admin {
+    admin?: boolean | undefined}
+export interface Active {
+    active?: boolean | undefined}

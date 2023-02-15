@@ -25,8 +25,6 @@ const authenticateMiddleware = async (
     throw new AppError("Wrong Email/Password", 401);
   }
 
-  if (!loggedUser.active) throw new AppError("User not active!", 401);
-
   const token: string = sign(
     {
       email: loggedUser.email,
@@ -35,6 +33,7 @@ const authenticateMiddleware = async (
     { expiresIn: "8h", subject: String(loggedUser.id) }
   );
 
+  
   req.token = token;
   return next();
 };

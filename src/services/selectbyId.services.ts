@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express";
+import { NextFunction, query, Request, Response } from "express";
 import format from "pg-format";
 import { client } from "../database/config.database";
 import { User, UserResponse } from "../interfaces/interfaces";
@@ -14,11 +14,9 @@ const selectbyIdService = async (payload: string): Promise<User> => {
         `,
     id
   );
- 
 
+  console.log(queryString)
   const response: UserResponse = await client.query(queryString);
-
-
   return response.rows[0];
 };
 

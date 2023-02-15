@@ -10,13 +10,12 @@ const validateAdmMiddleware = async (
   next: NextFunction
 ) => {
   const loggedUser: User = await selectbyEmailService(req.loggedEmail);
-
   const response = await isAdminService(loggedUser.email)
-
-  if (response) {
+  console.log(response)
+  if (response.admin) {
     return next();
   } else {
-    throw new AppError("Insufficient Permission", 401);
+    throw new AppError("Insufficient Permission", 403);
   }
   return;
 };

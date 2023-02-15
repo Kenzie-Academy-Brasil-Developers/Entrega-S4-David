@@ -1,4 +1,0 @@
-controllers
-
-    Recebe os dados de entrada da requisição e retorna a resposta ao usuário.
-    Não deve conter lógica ou regra de negócio da aplicação.

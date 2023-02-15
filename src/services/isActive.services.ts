@@ -1,19 +1,21 @@
 import { NextFunction, Request, Response } from "express";
-import { Admin, User, UserResponse, UserUpdate } from "../interfaces/interfaces";
+import { Active, User, UserResponse } from "../interfaces/interfaces";
 import { AppError } from "../errors/error";
 import  format  from 'pg-format';
 import { client } from '../database/config.database';
 
-const isAdminService = async (
+const isActiveService = async (
   payload:string
-):Promise<Admin> => {
+):Promise<Active> => {
   ;
     const queryString = format(`
-    SELECT admin FROM users
-    WHERE email='%s'`, payload)
+    SELECT active FROM users
+    WHERE id=%s`, payload)
 
+    console.log(queryString)
     const response: UserResponse = await client.query(queryString)
+    
     return response.rows[0]
 };
 
-export default isAdminService;
+export default isActiveService;
