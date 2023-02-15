@@ -11,7 +11,7 @@ const validateAdmMiddleware = async (
 ) => {
   const loggedUser: User = await selectbyEmailService(req.loggedEmail);
   const response = await isAdminService(loggedUser.email)
-  console.log(response)
+  
   if (response.admin) {
     return next();
   } else {

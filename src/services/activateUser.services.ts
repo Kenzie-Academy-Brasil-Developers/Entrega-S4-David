@@ -10,7 +10,7 @@ const activateUserService = async (id:string) => {
     SET active = true
     WHERE id=%s`, id)
 
-    console.log(queryString)
+    
 
     const response = await client.query(queryString)
     return response;

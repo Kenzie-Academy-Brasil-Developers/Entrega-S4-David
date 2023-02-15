@@ -15,7 +15,7 @@ const selectbyIdService = async (payload: string): Promise<User> => {
     id
   );
 
-  console.log(queryString)
+  
   const response: UserResponse = await client.query(queryString);
   return response.rows[0];
 };

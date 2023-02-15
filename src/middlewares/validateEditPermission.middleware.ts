@@ -13,9 +13,7 @@ const validateEditPermissions = async(req:Request, res:Response, next:NextFuncti
     const loggedUser:User = await selectbyIdService(localLogged.sub)
     const searchedId = req.searchedId
 
-    console.log(loggedUser.id === searchedId)
-    console.log(loggedUser.id)
-    console.log(searchedId)
+   
     if(loggedUser.id === searchedId){
         return next()
     }

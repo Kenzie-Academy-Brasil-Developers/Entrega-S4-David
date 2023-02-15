@@ -10,7 +10,7 @@ const validateActiveMiddleware = (mode:string, source:string) =>{
     next: NextFunction
   ): Promise<Response | void> => {
     const response = await isActiveService(source==='req'?req.params.id:req.id);
-    console.log(response)
+    
     if(mode==="active"){
       if (response.active) {
         return next();
