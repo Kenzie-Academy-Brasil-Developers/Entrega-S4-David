@@ -54,8 +54,8 @@ usersRouter.post(
 
 usersRouter.patch(
   "/:id",
-  checkIdExistenceMiddleware,
   authorizateMiddleware,
+  checkIdExistenceMiddleware,
   validateEditPermissions,
   checkEmailExistenceMiddleware("unique"),
   validateBodyMiddleware(userSchemaUpdate),
@@ -65,8 +65,8 @@ usersRouter.patch(
 
 usersRouter.delete(
   "/:id",
-  checkIdExistenceMiddleware,
   authorizateMiddleware,
+  checkIdExistenceMiddleware,
   validateEditPermissions,
   validateActiveMiddleware("active", "req"),
   deactivateUserController
@@ -74,9 +74,9 @@ usersRouter.delete(
 
 usersRouter.put(
   "/:id/recover",
+  authorizateMiddleware,
   checkIdExistenceMiddleware,
   validateActiveMiddleware("inactive", "req"),
-  authorizateMiddleware,
   userFromTokenMiddleware,
   validateAdmMiddleware,
   activateUserController

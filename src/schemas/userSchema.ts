@@ -6,13 +6,13 @@ export const userSchema = z.object({
   email: z.string().max(100),
   password: z.string().max(120),
   admin: boolean().optional(),
-  active: boolean(),
+  active: boolean().optional(),
 });
 
 export const userSchemaReq = userSchema.omit({ id: true});
 
 export const userSchemaUpdate = userSchemaReq
-  .omit({admin:true})
+  .omit({admin:true, active:true})
   .partial()
   .refine(({ name, email, password }) => name || email || password,
   {message:'must enter at least one of name, email of password to be updated'});

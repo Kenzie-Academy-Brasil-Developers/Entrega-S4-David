@@ -11,7 +11,7 @@ const loginController = async (
 ): Promise<Response> => {
   const loggedUser: User = await selectbyEmailService(req.body.email);
   const response = loginService(loggedUser);
-  return res.status(200).json(response);
+  return res.status(200).json({token:response});
 };
 
 export default loginController;

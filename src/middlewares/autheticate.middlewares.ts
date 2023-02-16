@@ -30,7 +30,7 @@ const authenticateMiddleware = async (
       email: loggedUser.email,
     },
     String(process.env.SECRET_KEY),
-    { expiresIn: "8h", subject: String(loggedUser.id) }
+    { expiresIn: "24h", subject: String(loggedUser.id) }
   );
 
   
