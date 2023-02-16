@@ -5,7 +5,7 @@ import { loginSchema } from "../schemas/loginSchema";
 import loginController from "../controllers/login.controller";
 import authenticateMiddleware from "../middlewares/autheticate.middlewares";
 import validateActiveMiddleware from "../middlewares/validateActive.middleware";
-import activateUserController from "../controllers/activateUser.controller";
+
 
 export const loginRouter: Router = Router();
 

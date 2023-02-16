@@ -6,9 +6,6 @@ import { userSchemaReq, userSchemaUpdate } from "../schemas/userSchema";
 import cryptographPasswordMiddleware from "../middlewares/cryptgraphPassword.middleware";
 import checkIdExistenceMiddleware from "../middlewares/checkIdExistence.middleware";
 import getUserByIdController from "../controllers/getUserById.controller";
-import { loginSchema } from "../schemas/loginSchema";
-import loginController from "../controllers/login.controller";
-import authenticateMiddleware from "../middlewares/autheticate.middlewares";
 import authorizateMiddleware from "../middlewares/authorizate.middleware";
 import getAllController from "../controllers/getAll.controller";
 import userFromTokenMiddleware from "../middlewares/userFromToken.middleware";
@@ -43,14 +40,7 @@ usersRouter.get(
   getUserByIdController
 );
 
-usersRouter.post(
-  "/login",
-  validateBodyMiddleware(loginSchema),
-  checkEmailExistenceMiddleware("existsLogin"),
-  authenticateMiddleware,
-  validateActiveMiddleware("active", "middleware"),
-  loginController
-);
+
 
 usersRouter.patch(
   "/:id",
